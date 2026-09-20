@@ -1,0 +1,18 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Java
+*.class
+
+# Build
+target/
+build/
+
+# Environment / secrets
+.env
+
+# OS
+.DS_Store
+Thumbs.db
