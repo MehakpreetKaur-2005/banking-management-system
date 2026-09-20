@@ -99,7 +99,7 @@ public class CustomerDAO {
     public List<Customer> searchCustomers(String keyword) throws SQLException {
         List<Customer> customers = new ArrayList<>();
         String sql = "SELECT * FROM customers WHERE " +
-                "first_name LIKE ? OR last_name LIKE ? OR phone LIKE ? OR email LIKE ? " +
+                "customer_code LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR phone LIKE ? OR email LIKE ? " +
                 "ORDER BY customer_id";
 
         String pattern = "%" + keyword + "%";
@@ -111,6 +111,7 @@ public class CustomerDAO {
             stmt.setString(2, pattern);
             stmt.setString(3, pattern);
             stmt.setString(4, pattern);
+            stmt.setString(5, pattern);
 
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {

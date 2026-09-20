@@ -19,21 +19,9 @@ INSERT INTO employees
     last_name,
     email,
     phone,
-    role,
     status
 )
 VALUES
-    (
-        'EMP-001',
-        'admin',
-        'CHANGE_ME_HASH',
-        'System',
-        'Administrator',
-        'admin@bank.com',
-        '9999999999',
-        'ADMIN',
-        'ACTIVE'
-    ),
     (
         'EMP-002',
         'employee01',
@@ -42,7 +30,6 @@ VALUES
         'Employee',
         'employee01@bank.com',
         '9999999998',
-        'EMPLOYEE',
         'ACTIVE'
     );
 
@@ -160,7 +147,7 @@ VALUES
         'TXN-20260920-000002',
         3,
         NULL,
-        2,
+        1,
         'DEPOSIT',
         15000.00,
         'SUCCESS',

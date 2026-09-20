@@ -10,6 +10,8 @@
 
 ---
 
+DROP DATABASE IF EXISTS banking_management_system;
+
 CREATE DATABASE IF NOT EXISTS banking_management_system
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_0900_ai_ci;
@@ -22,7 +24,7 @@ USE banking_management_system;
 
 CREATE TABLE IF NOT EXISTS employees (
 
-                                         ```
+
                                          employee_id BIGINT AUTO_INCREMENT,
 
                                          employee_code VARCHAR(20) NOT NULL,
@@ -38,8 +40,6 @@ CREATE TABLE IF NOT EXISTS employees (
                                          email VARCHAR(100) NOT NULL,
 
                                          phone VARCHAR(20),
-
-                                         role VARCHAR(30) NOT NULL DEFAULT 'EMPLOYEE',
 
                                          status VARCHAR(20) NOT NULL DEFAULT 'ACTIVE',
 
@@ -60,12 +60,9 @@ CREATE TABLE IF NOT EXISTS employees (
                                          CONSTRAINT uk_employee_email
                                              UNIQUE (email),
 
-                                         CONSTRAINT chk_employee_role
-                                             CHECK (role IN ('EMPLOYEE', 'ADMIN', 'MANAGER')),
-
                                          CONSTRAINT chk_employee_status
                                              CHECK (status IN ('ACTIVE', 'INACTIVE'))
-                                         ```
+
 
 ) ENGINE = InnoDB;
 
@@ -75,7 +72,7 @@ CREATE TABLE IF NOT EXISTS employees (
 
 CREATE TABLE IF NOT EXISTS customers (
 
-                                         ```
+
                                          customer_id BIGINT AUTO_INCREMENT,
 
                                          customer_code VARCHAR(20) NOT NULL,
@@ -115,7 +112,7 @@ CREATE TABLE IF NOT EXISTS customers (
 
                                          CONSTRAINT chk_customer_status
                                              CHECK (status IN ('ACTIVE', 'INACTIVE'))
-                                         ```
+
 
 ) ENGINE = InnoDB;
 
@@ -125,7 +122,7 @@ CREATE TABLE IF NOT EXISTS customers (
 
 CREATE TABLE IF NOT EXISTS accounts (
 
-                                        ```
+
                                         account_id BIGINT AUTO_INCREMENT,
 
                                         account_number VARCHAR(20) NOT NULL,
@@ -169,7 +166,7 @@ CREATE TABLE IF NOT EXISTS accounts (
                                                 OR
                                                 (account_type = 'CURRENT' AND balance >= -5000.00)
                                             )
-                                        ```
+
 
 ) ENGINE = InnoDB;
 
@@ -179,7 +176,7 @@ CREATE TABLE IF NOT EXISTS accounts (
 
 CREATE TABLE IF NOT EXISTS transactions (
 
-                                            ```
+
                                             transaction_id BIGINT AUTO_INCREMENT,
 
                                             transaction_reference VARCHAR(30) NOT NULL,
@@ -241,7 +238,7 @@ CREATE TABLE IF NOT EXISTS transactions (
 
                                             CONSTRAINT chk_transaction_amount
                                                 CHECK (amount > 0)
-                                            ```
+
 
 ) ENGINE = InnoDB;
 
